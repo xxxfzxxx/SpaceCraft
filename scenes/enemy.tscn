@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqarpupwhk1v"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_bcd3p"]
+[ext_resource type="Texture2D" uid="uid://2161wbbw1t33" path="res://PNG/Default/satellite_B.png" id="2_rv1fq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyo4j"]
+size = Vector2(51.9999, 55.5001)
+
+[node name="Enemy" type="Area2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_bcd3p")
+hp = 3
+speed = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("2_rv1fq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wyo4j")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

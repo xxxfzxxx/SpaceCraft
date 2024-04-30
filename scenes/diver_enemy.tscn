@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://tvd7a86ay8qt"]
+
+[ext_resource type="PackedScene" uid="uid://cqarpupwhk1v" path="res://scenes/enemy.tscn" id="1_i4lp2"]
+[ext_resource type="Texture2D" uid="uid://obnnwdyfn75x" path="res://PNG/Default/enemy_C.png" id="2_go203"]
+
+[node name="DiverEnemy" instance=ExtResource("1_i4lp2")]
+hp = 1
+speed = 600
+points = 200
+enemy_type = 1
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_go203")
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(1.4, 0.68)
